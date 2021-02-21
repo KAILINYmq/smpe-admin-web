@@ -82,6 +82,13 @@
             placeholder="选择上级类目"
           />
         </el-form-item>
+        <!-- Casbin 权限字段 -->
+        <el-form-item v-if="form.type.toString() !== '2'" label="请求方式" prop="action">
+          <el-input v-model="form.action" :style=" form.type.toString() === '0' ? 'width: 450px' : 'width: 178px'" placeholder="请求方式: GET、POST、PUT、DELETE ..." />
+        </el-form-item>
+        <el-form-item v-if="form.type.toString() !== '2'" label="请求路由" prop="address">
+          <el-input v-model="form.address" :style=" form.type.toString() === '0' ? 'width: 450px' : 'width: 178px'" placeholder="请求路由: /api/job、/api/roles、/api/menus/ ..." />
+        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="text" @click="crud.cancelCU">取消</el-button>
